@@ -7,7 +7,7 @@ def get_csi_data(engine):
         FROM ds_ipl.csi_produk
     """, engine)
 
-    df_csi_agg = df_csi.groupby('produk_hierarki', as_index=False)['skor_csi'].avg()
+    df_csi_agg = df_csi.groupby('produk_hierarki', as_index=False)['skor_csi'].sum()
     df_csi_agg.rename(columns={'skor_csi': 'total_skor_csi'}, inplace=True)
 
     conditions = [
