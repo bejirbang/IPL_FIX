@@ -8,3 +8,5 @@ reportlab
 openpyxl
 requestscd 
 streamlit_agraph
+streamlit_nested_layout
+pymysql
