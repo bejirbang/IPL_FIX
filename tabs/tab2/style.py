@@ -1,14 +1,18 @@
-# Warna fase
-FASE_COLORS = {
-    "Perencanaan & Konseptual": "#48cae4",
-    "Rilis (Go Live)": "#00b4d8",
-    "Pertumbuhan": "#0096c7",
-    "Evolusi": "#0077b6",
-    "Penutupan": "#023e8a",
-    "Tidak Terklasifikasi": "#F50F1A",
+from streamlit_agraph import Config
+
+FASE_COLORS = {}
+
+NODE_COLORS = {
+    "fase": "#2563EB",      
+    "produk": "#22C55E"     
 }
 
-from streamlit_agraph import Config
+GRAPH_THEME = {
+    "background": "#020617",
+    "edge_color": "#94a3b8",
+    "highlight": "#38bdf8",
+    "font_color": "#E5E7EB"
+}
 
 GRAPH_CONFIG = Config(
     width="100%",
@@ -16,4 +20,21 @@ GRAPH_CONFIG = Config(
     directed=True,
     physics=True,
     hierarchical=False,
+
+    nodeHighlightBehavior=True,
+    highlightColor=GRAPH_THEME["highlight"],
+
+    node={
+        "shape": "dot",
+        "borderWidth": 2,
+        "font": {
+            "size": 14,
+            "color": GRAPH_THEME["font_color"]
+        }
+    },
+
+    edge={
+        "smooth": True,
+        "color": GRAPH_THEME["edge_color"]
+    }
 )
